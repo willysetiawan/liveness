@@ -75,8 +75,11 @@
             if (i > -1) {
               loop();
             } else {
-              window.location.href =
-                "https://apidocs.gcp.bankina.id/complete?successCode=SUCCESS&version=image";
+				const urlParams = new URLSearchParams(window.location.search);
+				const paramToken = urlParams.get('token');
+				const livenessKey = urlParams.get('key');
+
+				window.location.href ="https://stg-landing-page-ui.bankina.id/liveness?token="+paramToken+"&key="+livenessKey;
             }
           }, 1000);
         }
